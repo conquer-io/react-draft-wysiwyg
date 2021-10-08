@@ -101,16 +101,24 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-          <a href={link} target="_blank">
-            <img
+          { link ? <a href={link} target="_blank">
+              <img
+                  src={src}
+                  alt={alt}
+                  style={{
+                    height,
+                    width,
+                  }}
+              />
+            </a> : <img
               src={src}
               alt={alt}
               style={{
                 height,
                 width,
               }}
-            />
-          </a>
+          />
+          }
           {
             !isReadOnly() && hovered && isImageAlignmentEnabled() ?
               this.renderAlignmentOptions(alignment)
