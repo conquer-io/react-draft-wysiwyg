@@ -16,7 +16,7 @@ const getImageComponent = config => class Image extends Component {
   };
 
   setEntityAlignmentLeft: Function = (): void => {
-    console.log("IAN CHANGED CODE")
+    console.log("IAN CHANGED CODE2")
     this.setEntityAlignment('left');
   };
 
@@ -101,16 +101,16 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-          {link ? `<a href="${link}" target="_blank">` : undefined}
-          <img
-            src={src}
-            alt={alt}
-            style={{
-              height,
-              width,
-            }}
-          />
-          {link ? `</a>` : undefined}
+          <a href={link} target="_blank">
+            <img
+              src={src}
+              alt={alt}
+              style={{
+                height,
+                width,
+              }}
+            />
+          </a>
           {
             !isReadOnly() && hovered && isImageAlignmentEnabled() ?
               this.renderAlignmentOptions(alignment)
