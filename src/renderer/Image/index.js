@@ -16,6 +16,7 @@ const getImageComponent = config => class Image extends Component {
   };
 
   setEntityAlignmentLeft: Function = (): void => {
+    console.log("IAN CHANGED CODE")
     this.setEntityAlignment('left');
   };
 
