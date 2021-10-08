@@ -84,7 +84,7 @@ const getImageComponent = config => class Image extends Component {
     const { hovered } = this.state;
     const { isReadOnly, isImageAlignmentEnabled } = config;
     const entity = contentState.getEntity(block.getEntityAt(0));
-    const { src, alignment, height, width, alt } = entity.getData();
+    const { src, alignment, height, width, alt, link } = entity.getData();
 
     return (
       <span
@@ -100,6 +100,7 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
+          {link ? `<a href="${link}" target="_blank">` : undefined}
           <img
             src={src}
             alt={alt}
@@ -108,6 +109,7 @@ const getImageComponent = config => class Image extends Component {
               width,
             }}
           />
+          {link ? `</a>` : undefined}
           {
             !isReadOnly() && hovered && isImageAlignmentEnabled() ?
               this.renderAlignmentOptions(alignment)
